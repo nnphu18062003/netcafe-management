@@ -1,6 +1,5 @@
 package netcafe.model;
 
-/** Khách hàng với số giây chơi còn lại. */
 public class Customer {
     private final String id;
     private String name;
@@ -25,7 +24,6 @@ public class Customer {
         remainingSeconds += seconds;
     }
 
-    /** Trừ thời gian chơi, không để số dư âm. */
     public void deductSeconds(long seconds) {
         remainingSeconds = Math.max(0, remainingSeconds - seconds);
     }

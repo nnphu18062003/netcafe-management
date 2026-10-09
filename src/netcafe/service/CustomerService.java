@@ -10,7 +10,6 @@ import java.util.UUID;
 import netcafe.model.Customer;
 import netcafe.persistence.DataStore;
 
-/** Tìm, thêm, nạp tiền và xoá khách hàng. */
 public class CustomerService {
     private final DataStore store;
     private final Settings settings;
@@ -28,7 +27,6 @@ public class CustomerService {
         return new ArrayList<>(customers.values());
     }
 
-    /** Tìm theo tên hoặc số điện thoại, không phân biệt hoa thường. */
     public List<Customer> search(String keyword) {
         String k = keyword == null ? "" : keyword.trim().toLowerCase(Locale.ROOT);
         List<Customer> result = new ArrayList<>();
@@ -57,7 +55,6 @@ public class CustomerService {
         return c;
     }
 
-    /** Nạp tiền: quy đổi sang giây theo tỉ lệ hiện tại và cộng vào số dư. */
     public long topUp(String customerId, long amount) {
         Customer c = require(customerId);
         long seconds = settings.moneyToSeconds(amount);

@@ -3,7 +3,6 @@ package netcafe.model;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
-/** Một phiên chơi của khách hàng. endTime == null nghĩa là phiên đang chạy. */
 public class Session {
     private final String customerId;
     private final LocalDateTime startTime;
@@ -32,7 +31,6 @@ public class Session {
         this.autoTerminated = autoTerminated;
     }
 
-    /** Số giây đã chơi tính đến lúc kết thúc (hoặc đến {@code now} nếu đang chạy). */
     public long elapsedSeconds(LocalDateTime now) {
         LocalDateTime to = endTime != null ? endTime : now;
         return Math.max(0, Duration.between(startTime, to).getSeconds());

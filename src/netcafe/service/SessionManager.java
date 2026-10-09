@@ -10,10 +10,6 @@ import netcafe.model.Customer;
 import netcafe.model.Session;
 import netcafe.persistence.DataStore;
 
-/**
- * Quản lý phiên chơi riêng cho từng khách hàng.
- * Thời điểm bắt đầu/kết thúc được lấy ngay khi gọi start/end (tức khi bấm nút).
- */
 public class SessionManager {
     private final CustomerService customerService;
     private final DataStore store;
@@ -48,7 +44,6 @@ public class SessionManager {
         return s;
     }
 
-    /** Kết thúc phiên: trừ thời gian đã chơi, lưu lịch sử và cập nhật số dư. */
     public Session end(String customerId, boolean autoTerminated) {
         Session s = active.remove(customerId);
         if (s == null) {
@@ -64,7 +59,6 @@ public class SessionManager {
         return s;
     }
 
-    /** Số giây còn lại thực tế của khách (đã trừ phần đang chơi). */
     public long liveRemainingSeconds(String customerId) {
         Customer c = customerService.get(customerId);
         if (c == null) {
@@ -75,10 +69,6 @@ public class SessionManager {
         return Math.max(0, c.getRemainingSeconds() - used);
     }
 
-    /**
-     * Gọi định kỳ (mỗi giây) từ GUI. Tự động kết thúc các phiên đã dùng hết
-     * thời gian và trả về danh sách phiên bị kết thúc để GUI hiển thị thông báo.
-     */
     public List<Session> checkExpired() {
         List<Session> expired = new ArrayList<>();
         for (String id : new ArrayList<>(active.keySet())) {

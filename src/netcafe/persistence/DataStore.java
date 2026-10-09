@@ -19,11 +19,7 @@ import netcafe.model.Customer;
 import netcafe.model.Session;
 import netcafe.service.Settings;
 
-/**
- * Lưu dữ liệu ra file văn bản trong thư mục data/:
- * customers.csv, sessions.csv, config.properties.
- * Dùng ký tự ';' làm dấu phân cách, tên khách không được chứa ';'.
- */
+
 public class DataStore {
     private static final String SEP = ";";
     private static final long DEFAULT_PRICE_PER_HOUR = 10000;
@@ -57,7 +53,7 @@ public class DataStore {
         try {
             price = Long.parseLong(p.getProperty("pricePerHour", String.valueOf(DEFAULT_PRICE_PER_HOUR)));
         } catch (NumberFormatException ignored) {
-            // giữ giá mặc định
+
         }
         return new Settings(price);
     }

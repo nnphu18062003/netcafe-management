@@ -9,7 +9,6 @@ import netcafe.service.SessionManager;
 import netcafe.service.Settings;
 import netcafe.ui.MainFrame;
 
-/** Điểm khởi chạy chương trình NetCafe Management System. */
 public class Main {
     public static void main(String[] args) {
         DataStore store = new DataStore("data");
@@ -21,7 +20,6 @@ public class Main {
             try {
                 UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
             } catch (Exception ignored) {
-                // dùng giao diện mặc định nếu không đặt được
             }
             new MainFrame(customerService, sessionManager, settings, store).setVisible(true);
         });
