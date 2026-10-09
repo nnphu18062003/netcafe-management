@@ -1,6 +1,7 @@
 package netcafe.service;
 
 public class Settings {
+    public static final long TOP_UP_UNIT = 1000;
     private long pricePerHour;
 
     public Settings(long pricePerHour) {
@@ -19,6 +20,9 @@ public class Settings {
     public long moneyToSeconds(long amount) {
         if (amount <= 0) {
             throw new IllegalArgumentException("Số tiền phải lớn hơn 0");
+        }
+        if (amount % TOP_UP_UNIT != 0) {
+            throw new IllegalArgumentException("Số tiền nạp phải là bội số của " + TOP_UP_UNIT + " VND");
         }
         return amount * 3600 / pricePerHour;
     }

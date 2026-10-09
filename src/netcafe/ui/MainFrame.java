@@ -156,7 +156,8 @@ public class MainFrame extends JFrame {
         String id = requireSelection();
         if (id == null) return;
         String input = JOptionPane.showInputDialog(this,
-                "Nhập số tiền (VND). Tỉ lệ: " + settings.getPricePerHour() + " VND / giờ");
+                "Nhập số tiền (VND, bội số của " + Settings.TOP_UP_UNIT + "). Tỉ lệ: "
+                        + settings.getPricePerHour() + " VND / giờ");
         if (input == null) return;
         run(() -> {
             long seconds = customerService.topUp(id, parseAmount(input));

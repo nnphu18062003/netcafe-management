@@ -25,7 +25,7 @@ Dữ liệu được tạo trong thư mục `data/` (`customers.csv`, `sessions.
 | Yêu cầu | Chức năng trong chương trình |
 |---|---|
 | a. Tìm khách hàng có sẵn hoặc thêm khách mới | Ô tìm kiếm theo tên/SĐT (lọc ngay khi gõ), nút **Thêm khách hàng** |
-| a. Nhận số tiền, quy đổi ra giờ chơi (tỉ lệ tuỳ chọn) | Nút **Nạp tiền**; tỉ lệ VND/giờ chỉnh ở **Cài đặt tỉ lệ**, lưu trong `config.properties` |
+| a. Nhận số tiền, quy đổi ra giờ chơi (tỉ lệ tuỳ chọn) | Nút **Nạp tiền** (số tiền phải là bội số của 1.000 VND, sai thì báo lỗi); tỉ lệ VND/giờ chỉnh ở **Cài đặt tỉ lệ**, lưu trong `config.properties` |
 | a. Bắt đầu / kết thúc phiên chơi cho từng khách | Nút **Bắt đầu phiên**, **Kết thúc phiên**; mỗi khách có phiên riêng |
 | a. Xoá khách hàng | Nút **Xoá khách hàng** (có xác nhận, không cho xoá khi đang chơi) |
 | b. GUI để chọn và thêm thông tin | Cửa sổ Swing: bảng khách hàng + các hộp thoại nhập liệu |
